@@ -41,6 +41,7 @@ void setup() {
   if(!ina219.init()){
     Serial.println("Error : INA219 not connected!");
     Serial.println("Connect the INA219, then push the reset button");
+    digitalWrite(LEDPIN, HIGH); 
     while (1);
   }
   else{
@@ -51,6 +52,7 @@ void setup() {
   if (!rtc.begin()) {
     Serial.println("Error : RTC not detected!");
     Serial.println("Attach the RTC, then push the reset button");
+    digitalWrite(LEDPIN, HIGH); 
     while (1);   // This command is an infinite loop. It is the same as for (;;); 
   }
   else{
@@ -64,6 +66,8 @@ void setup() {
     // When time needs to be set on a new device, or after a power loss, the
     // Following line sets the RTC to the date & time this sketch was compiled
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+    digitalWrite(LEDPIN, HIGH); 
+    while(1);
   }
   else{
     Serial.println("RTC OK!");
@@ -75,12 +79,13 @@ Uncomment the command and upload the whole code to update RTC Data and Time the 
 Then, comment this line out and upload the code AGAIN (the second time upload) to prevent the RTC resetting to the initial date and time when Arduino is power reset. 
 
 */
-//  rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+ // rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
 
   // Checking for SD card to make sure SD card is inserted
   if (!SD.begin(10)) {
     Serial.println("Error : SD card not detected!");
     Serial.println("Attach the SD card, then push the reset button");
+    digitalWrite(LEDPIN, HIGH); 
     for (;;);    // This command is an infinite loop. The code will hang there (the rest of the code will not run) until reset button is pressed.
   }
   else{
