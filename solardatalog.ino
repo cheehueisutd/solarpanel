@@ -24,8 +24,8 @@ RTC_DS1307 rtc;           // Real-time clock
 char filename[] = "YYYYMMDD.csv";   // Temporary file name for .csv file
 DateTime start_time;                // Temporary start time variable
 File file;                          // Temporary file variable for .csv file
-float averagedcurrent_mA;           // Temporary variable for averaged values
-int counter = 0;                    // Temporary variable to count no. of datapoints
+// float averagedcurrent_mA;           // Temporary variable for averaged values
+// int counter = 0;                    // Temporary variable to count no. of datapoints
 const int LEDPIN = 7;               // Define the GPIO Pin 7 to control the LED7
 int frequency = 20;                 // in Seconds (set to be even number), how often to collect current value from the solar panel
 
